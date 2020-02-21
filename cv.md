@@ -8,7 +8,7 @@
 7. Bsuir IEF 2y, It-Academy (web developer)
 8. Talking with myself, Harry Potter (eng), different films
 
-////////////////
+```
 int menu_navigation(int amount_of_func) {                         //function return value of menu point                   
 	char word;
 	COORD position;
@@ -58,3 +58,4 @@ int menu_navigation(int amount_of_func) {                         //function ret
 	system("cls");
 	return position.Y + 1;
 }
+```
