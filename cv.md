@@ -8,3 +8,53 @@
 7. Bsuir IEF 2y, It-Academy (web developer)
 8. Talking with myself, Harry Potter (eng), different films
 
+////////////////
+int menu_navigation(int amount_of_func) {                         //function return value of menu point                   
+	char word;
+	COORD position;
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+	position.X = 0;
+	position.Y = 0;
+	SetConsoleCursorPosition(hConsole, position);
+	do {
+		word = _getch();
+		if (word == 80)
+			if (position.Y < amount_of_func)
+				if (position.Y == amount_of_func - 1) {
+					SetConsoleCursorPosition(hConsole, position);
+					std::cout << "   " << std::endl;
+					position.Y = 0;
+					SetConsoleCursorPosition(hConsole, position);
+					std::cout << "-> " << std::endl;
+				}
+				else {
+					SetConsoleCursorPosition(hConsole, position);
+					std::cout << "   " << std::endl;
+					position.Y++;
+					SetConsoleCursorPosition(hConsole, position);
+					std::cout << "-> " << std::endl;
+				}
+		if (word == 72)
+			if (position.Y > 0) {
+				SetConsoleCursorPosition(hConsole, position);
+				std::cout << "   " << std::endl;
+				position.Y--;
+				SetConsoleCursorPosition(hConsole, position);
+				std::cout << "-> " << std::endl;
+			}
+			else {
+				SetConsoleCursorPosition(hConsole, position);
+				std::cout << "   " << std::endl;
+				position.Y = amount_of_func - 1;
+				SetConsoleCursorPosition(hConsole, position);
+				std::cout << "-> " << std::endl;
+			}
+		if (word == 13) {
+			break;
+		}
+		if (word == 27)
+			return 0;
+	} while (1);
+	system("cls");
+	return position.Y + 1;
+}
